@@ -6,19 +6,27 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
+    // MARK: - PROPERTIES
+
+    @Environment(\.modelContext) private var modelContext
+    @Query private var movies: [Movie]
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        List {
+
         }
-        .padding()
+        .overlay {
+            if movies.isEmpty {
+                EmptyListView()
+            }
+        }
     }
 }
 
-#Preview {
+#Preview("Empty List") {
     ContentView()
+        .modelContainer(for: Movie.self, inMemory: true)
 }
