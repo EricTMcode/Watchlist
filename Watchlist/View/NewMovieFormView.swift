@@ -56,6 +56,7 @@ struct NewMovieFormView: View {
 
                 Button {
                     addNewMovie()
+                    dismiss()
                 } label: {
                     Text("Save")
                         .font(.title2.weight(.medium))
