@@ -94,6 +94,7 @@ struct ContentView: View {
                         Button("OK", role: .cancel) {}
                     }
                     .accessibilityLabel("Random Movie")
+                    .sensoryFeedback(.success, trigger: isShowingAlert)
 
                     Spacer()
                 }
@@ -104,6 +105,7 @@ struct ContentView: View {
                     ButtonImageView(symbolName: "plus.circle.fill")
                 }
                 .accessibilityLabel("New Movie")
+                .sensoryFeedback(.success, trigger: isSheetPresented)
             }
             .padding(.horizontal)
         }
